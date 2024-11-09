@@ -24,13 +24,12 @@ This function toggles the state of the GPIO pin.
 ``` C 
 HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
 ```
-The 
+This code selects the port A as the port of the GPIO pin to toggle the state.
 ``` C 
 GPIOA
 ```
-selects the port A as the port of the GPIO pin to toggle the state.
-The 
+
+And this one specifies which pin on port A to toggle. 
 ``` C
 GPIO_PIN_1
 ```
-specifies which pin on port A to toggle. 
