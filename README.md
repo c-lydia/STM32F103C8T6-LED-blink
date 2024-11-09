@@ -29,15 +29,12 @@ This code selects the port A as the port of the GPIO pin to toggle the state.
 GPIOA
 ```
 
-This function delays the code execution by 1000 milisecond. 
-``` C
-HAL_Delay(1000);
-```
-
-
-```
-
 And this one specifies which pin on port A to toggle. 
 ``` C
 GPIO_PIN_1
+```
+
+This function delays the code execution by 1000 milisecond. 
+``` C
+HAL_Delay(1000);
 ```
