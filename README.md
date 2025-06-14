@@ -22,7 +22,7 @@ STM32F103C8T6-LED-blink/
 * **Library**: STM32 HAL
 * **Porgrammer**: ST-Link v2
 
-# How t0 build and flash 
+# How to build and flash 
 * **Open the project**: open STM32CubeIDE -> 'File > Open Project from File System' > select the repo folder
 * **Build the project**: Click the hammer icon or right-click the Project > Build
 * **Flash to board**: connect to your Blue Pill via ST-Link > select your debug configuration > click the debug icon or 'Run'
