@@ -1,40 +1,59 @@
-# STM32F103C8T6-LED-blink
-This explains how to use STM32F103C8T6 with STM32CubeIDE for the first STM32 project (LED Blink)
+# STM32F103C8T6 - LED Blink (STM32 HAL)
 
-## Hardware connection
-1. connect the board to the ST Link
-2. connect the board to the breadboard
-3. use a jumper wire to connect from Ground pin (G) on the board to the ground (-) on the breadboard
-4. connect the LED, the anode (positive) to the pin A1, and the cathode (negative) to the ground (-) on the breadboard
+This is a sample project that blinks an LED on the Blue Pill board (STM32F103C9T6) using STM32 HAL (Hardware Abstraction Layer), generated with STM32VubeMX and built with STM32VubeIDE. 
 
-## Coding the microcontroller
-The idea is to use HAL library to toggle the pin. 
+# Folder Structure 
+``` bash
+STM32F103C8T6-LED-blink/
+    Core/
+        Src/ # main.c and other source files
+	Inc/
+    Drivers/
+	CMSIS/ # ARM Cortex headers
+	STM32F1xx_HAL_Driver/
+    .project # CubeIDE project files
+    .cproject
+````
+
+# Tools and Environment 
+* **MCU**: STM32F103C8T6 (Blue Pill)
+* **IDE**: STM32CubeIDE
+* **Code Generation**: STM32CubeMX (integrated in CubeIDE)
+* **Library**: STM32 HAL
+* **Porgrammer**: ST-Link v2
+
+# How t0 build and flash 
+* **Open the project**: open STM32CubeIDE -> 'File > Open Project from File System' > select the repo folder
+* **Build the project**: Click the hammer icon or right-click the Project > Build
+* **Flash to board**: connect to your Blue Pill via ST-Link > select your debug configuration > click the debug icon or 'Run'
+
+# Behavior
+* The LED connected to **PC13** will blink every 500ms
+* The delay is created use 'HAL_Delay()' inside the main loop
 
 ``` C 
- while (1)
-  {
-	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
-	  HAL_Delay(1000);
-  }
+while (1) {
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    HAL_Delay(500);
 }
 ```
 
+# Notes 
+* PC13 is active-low on most Blue Pill boards (LED turns ON when pin is LOW)
+* Make sure your board is genuine or has working crystal (common Blue Pill issue)
+* HAL drivers simplify GPIO and peripheral handling, makinf this a good entry-level project
 
-This function toggles the state of the GPIO pin. 
-``` C 
-HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
-```
-This code selects the port A as the port of the GPIO pin to toggle the state.
-``` C 
-GPIOA
-```
+# Future Improvements 
+* Add support for EXTI (External Interrupts)
+* Add button-controlled blinking
+* Convert to FreeRTOS task
+* Port to LL (Low-Layer) drivers for more control
 
-And this one specifies which pin on port A to toggle. 
-``` C
-GPIO_PIN_1
-```
+# Author
+Chheng Lydiya
 
-This function delays the code execution by 1000 milisecond. 
-``` C
-HAL_Delay(1000);
-```
+Student at Insgtitute of Technology Cambodia
+GitHub: https://github.com/c-lydia
+
+# Contributing 
+This is just a learning repo, but if you have suggestions or ideas, feel free to open an issue. 
