@@ -56,5 +56,5 @@ Student at Insgtitute of Technology Cambodia
 
 GitHub: https://github.com/c-lydia
 
-# Contributing 
+## Contributing 
 This is just a learning repo, but if you have suggestions or ideas, feel free to open an issue. 
